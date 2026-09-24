@@ -1,118 +1,815 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Digavamurthi Rakesh — DevOps Engineer. AWS, Docker, Kubernetes, Jenkins and Terraform." />
-<title>Digavamurthi Rakesh | DevOps Engineer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digavamurthi Rakesh - Software Engineer and DevOps/AWS professional portfolio">
+  <meta name="keywords" content="Rakesh Digavamurthi, DevOps Engineer, AWS, Docker, Jenkins, Linux, Python, Software Engineer">
+  <meta name="author" content="Digavamurthi Rakesh">
+  <title>Rakesh Digavamurthi | Software Engineer | DevOps & AWS</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-soft: #111827;
+      --card: rgba(17, 24, 39, 0.78);
+      --text: #f8fafc;
+      --muted: #a7b1c2;
+      --accent: #38bdf8;
+      --accent-2: #818cf8;
+      --border: rgba(148, 163, 184, 0.18);
+      --shadow: 0 20px 60px rgba(0,0,0,.28);
+      --max: 1120px;
+    }
 
-<link
-  href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos"
-  rel="stylesheet"
-/>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56,189,248,.12), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(129,140,248,.12), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(92%, var(--max)); margin: auto; }
 
-<link rel="stylesheet" href="styles.css" />
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11,17,32,.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: .5px;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .94rem;
+      transition: .25s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      padding: 8px 11px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      border: 1px solid rgba(56,189,248,.25);
+      background: rgba(56,189,248,.07);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: .86rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero h2 {
+      color: #dbeafe;
+      font-size: clamp(1.15rem, 2.5vw, 1.65rem);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 1.05rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); border-color: rgba(56,189,248,.5); }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #4f46e5);
+      border: none;
+    }
+    .btn-secondary { background: rgba(255,255,255,.03); }
+
+    .hero-card {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(30,41,59,.75), rgba(15,23,42,.65));
+      box-shadow: var(--shadow);
+    }
+
+    .terminal {
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #050914;
+    }
+
+    .terminal-top {
+      display: flex;
+      gap: 7px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #64748b; }
+    .terminal-body {
+      padding: 20px;
+      color: #cbd5e1;
+      font: 14px/1.8 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .terminal-body .green { color: #4ade80; }
+    .terminal-body .blue { color: #60a5fa; }
+    .terminal-body .purple { color: #c084fc; }
+
+    /* Sections */
+    section { padding: 90px 0; }
+    .section-title {
+      margin-bottom: 40px;
+    }
+
+    .section-title .small {
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .78rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-top: 5px;
+      letter-spacing: -1px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin-top: 8px;
+      max-width: 750px;
+    }
+
+    .about-grid, .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.12);
+    }
+
+    .card p { color: var(--muted); }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: rgba(148,163,184,.09);
+      border: 1px solid var(--border);
+      color: #dbeafe;
+      font-size: .83rem;
+    }
+
+    /* Experience */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: rgba(56,189,248,.25);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 38px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 4px solid var(--bg);
+      box-shadow: 0 0 0 1px rgba(56,189,248,.4);
+    }
+
+    .timeline-item h3 { font-size: 1.25rem; }
+    .timeline-item .meta { color: var(--accent); margin: 4px 0 10px; font-size: .9rem; }
+    .timeline-item p, .timeline-item li { color: var(--muted); }
+    .timeline-item ul { padding-left: 20px; }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      min-height: 300px;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(56,189,248,.1);
+      border: 1px solid rgba(56,189,248,.18);
+      font-size: 1.35rem;
+      margin-bottom: 18px;
+    }
+
+    .project h3 { margin-bottom: 10px; }
+    .project p { color: var(--muted); font-size: .94rem; flex: 1; }
+    .project .tags { margin-top: 18px; }
+
+    /* Education */
+    .education {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .education h3 { margin-bottom: 5px; }
+    .education .meta { color: var(--accent); font-size: .9rem; margin-bottom: 8px; }
+    .education p { color: var(--muted); }
+
+    /* Contact */
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(56,189,248,.08);
+      border: 1px solid var(--border);
+    }
+
+    .contact-item small { color: var(--muted); display: block; }
+    .contact-item a { color: #dbeafe; word-break: break-word; }
+    .contact-item a:hover { color: var(--accent); }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #111827;
+      border: 1px solid var(--border);
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s;
+    }
+
+    .back-top.show { opacity: 1; pointer-events: auto; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .about-grid, .contact-grid, .education { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects { grid-template-columns: 1fr; }
+      .hero-card { max-width: 600px; }
+    }
+
+    @media (max-width: 700px) {
+      .menu-btn { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 18px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        background: #0b1120;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .skills-grid { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -2px; }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="bg">
-  <video class="bg-video" autoplay muted loop playsinline>
-    <source
-      src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4"
-      type="video/mp4"
-    />
-  </video>
-</div>
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="#home">Rakesh<span>.</span></a>
 
-<div class="page">
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
 
-  <header class="header">
-    <a href="#" class="logo" aria-label="Home">
-      <img src="assets/logo.webp" alt="" width="52" height="52" />
-    </a>
-
-    <nav class="nav-pill" aria-label="Primary">
-      <a href="#" class="nav-link active">Home</a>
-      <a href="#" class="nav-link">Experience</a>
-      <a href="#" class="nav-link">Projects</a>
-      <a href="mailto:rakeshdigavamurthi@gmail.com" class="nav-link">Contact</a>
-    </nav>
-
-    <a href="mailto:rakeshdigavamurthi@gmail.com" class="sign-in">Contact</a>
-
-    <button type="button" class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <div class="overlay" id="overlay" hidden></div>
-
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden>
-    <a href="#" class="mobile-link active">Home</a>
-    <a href="#" class="mobile-link">Experience</a>
-    <a href="#" class="mobile-link">Projects</a>
-    <a href="mailto:rakeshdigavamurthi@gmail.com" class="mobile-link">Contact</a>
-    <a href="mailto:rakeshdigavamurthi@gmail.com" class="mobile-sign-in">Contact</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <main class="hero">
-    <div class="trust anim" style="--d:0.05s">
-      <div class="avatar a1"><span class="avatar-inner"><i class="fa-brands fa-aws"></i></span></div>
-      <div class="avatar a2"><span class="avatar-inner"><i class="fa-brands fa-docker"></i></span></div>
-      <div class="avatar a3"><span class="avatar-inner"><i class="fa-brands fa-github"></i></span></div>
-      <div class="trust-pill">Hands-on with AWS, Docker &amp; CI/CD</div>
-    </div>
+  <main>
 
-    <h1 class="headline anim">
-      <span class="line line1">Digavamurthi Rakesh</span>
-      <span class="line line2">DevOps Engineer</span>
-    </h1>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">● Available for opportunities</div>
 
-    <p class="subhead anim" style="--d:0.28s">
-      DevOps engineer building reliable cloud infrastructure and automating
-      CI/CD pipelines with AWS, Docker, Kubernetes and Terraform.
-    </p>
+          <h1>Hi, I'm <span>Rakesh</span></h1>
 
-    <a href="assets/Digavamurthi-Rakesh-Resume.pdf" download="Digavamurthi-Rakesh-Resume.pdf" class="cta anim" style="--d:0.4s">Download Resume</a>
+          <h2>Software Engineer · DevOps & AWS</h2>
+
+          <p>
+            Software Engineer with hands-on experience in software testing,
+            cloud technologies and DevOps practices. I build reliable,
+            automated and scalable solutions using AWS, Docker, Jenkins,
+            Linux, Git and Python.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="#contact">Contact Me</a>
+            <a class="btn btn-secondary" href="https://github.com/rake156" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/digumurthy-rakesh-962882225/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="terminal">
+            <div class="terminal-top">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="green">$ whoami</span></div>
+              <div>rakesh-digavamurthi</div>
+              <br>
+              <div><span class="blue">$ role</span></div>
+              <div>Software Engineer</div>
+              <div>DevOps / AWS</div>
+              <br>
+              <div><span class="purple">$ stack</span></div>
+              <div>Python · Linux · AWS</div>
+              <div>Docker · Jenkins · Git</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">About Me</div>
+          <h2>Building with code, cloud and automation.</h2>
+          <p>A concise overview of my professional profile and technical focus.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <p>
+              I am <strong>Digavamurthi Rakesh</strong>, a Software Engineer
+              with experience as a Software Test Engineer at ZETWERK. My
+              technical interests include DevOps, AWS cloud infrastructure,
+              CI/CD, containers, Linux and software development.
+            </p>
+            <br>
+            <p>
+              I enjoy turning development and infrastructure tasks into
+              repeatable, automated workflows and continuously improving my
+              cloud and DevOps skills through practical projects.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Professional Focus</h3>
+            <br>
+            <div class="tags">
+              <span class="tag">DevOps</span>
+              <span class="tag">AWS Cloud</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">Cloud Infrastructure</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Software Testing</span>
+              <span class="tag">Python</span>
+              <span class="tag">Linux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">Technical Skills</div>
+          <h2>My toolkit</h2>
+          <p>Technologies and tools reflected in my resume and projects.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="card skill-card">
+            <h3>Programming</h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Java</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">OOP</span>
+              <span class="tag">DSA</span>
+            </div>
+          </div>
+
+          <div class="card skill-card">
+            <h3>Web & Database</h3>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">SQL</span>
+              <span class="tag">MySQL</span>
+            </div>
+          </div>
+
+          <div class="card skill-card">
+            <h3>DevOps & Cloud</h3>
+            <div class="tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Jenkins</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+            </div>
+          </div>
+
+          <div class="card skill-card">
+            <h3>Testing & Tools</h3>
+            <div class="tags">
+              <span class="tag">Postman</span>
+              <span class="tag">Manual Testing</span>
+              <span class="tag">API Testing</span>
+              <span class="tag">Version Control</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">Experience</div>
+          <h2>Professional journey</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>Software Test Engineer · ZETWERK</h3>
+            <div class="meta">May 2025 – Present</div>
+            <p>
+              Working in software testing with a focus on quality,
+              validation and reliable product delivery while building
+              practical experience across software and engineering workflows.
+            </p>
+            <br>
+            <ul>
+              <li>Performed software testing and validation activities.</li>
+              <li>Worked with development and testing workflows to identify and resolve issues.</li>
+              <li>Strengthened skills in APIs, tools, version control and technical troubleshooting.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">Projects</div>
+          <h2>Hands-on work</h2>
+          <p>Selected cloud, DevOps and software projects.</p>
+        </div>
+
+        <div class="projects">
+
+          <article class="card project">
+            <div class="project-icon">☁</div>
+            <h3>AWS Three-Tier Web Application Deployment</h3>
+            <p>
+              Designed and deployed a three-tier application architecture on
+              AWS with separate presentation, application and database layers,
+              focusing on scalability, security and availability.
+            </p>
+            <div class="tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Cloud</span>
+              <span class="tag">Networking</span>
+              <span class="tag">Linux</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-icon">⚙</div>
+            <h3>CI/CD Pipeline Using Jenkins & Docker</h3>
+            <p>
+              Built an automated CI/CD workflow using Jenkins and Docker to
+              streamline application build, testing and containerized
+              deployment processes.
+            </p>
+            <div class="tags">
+              <span class="tag">Jenkins</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Git</span>
+              <span class="tag">CI/CD</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-icon">⌘</div>
+            <h3>Git Version Control Project</h3>
+            <p>
+              Created and managed a Git/GitHub based development workflow
+              covering repositories, branches, commits, remotes and deployment
+              of a portfolio website through GitHub Pages.
+            </p>
+            <div class="tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">GitHub Pages</span>
+              <span class="tag">HTML/CSS</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">Education</div>
+          <h2>Academic background</h2>
+        </div>
+
+        <div class="education">
+          <div class="card">
+            <h3>B.Tech – Electronics & Communication Engineering</h3>
+            <div class="meta">MJR College of Engineering & Technology</div>
+            <p>Percentage: 71%</p>
+          </div>
+
+          <div class="card">
+            <h3>Diploma – Electronics & Communication Engineering</h3>
+            <div class="meta">MJR College of Engineering & Technology</div>
+            <p>Percentage: 67.8%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <div class="small">Contact</div>
+          <h2>Let's connect</h2>
+          <p>I'm open to discussing software, DevOps and cloud opportunities.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card">
+            <div class="contact-item">
+              <div class="contact-icon">✉</div>
+              <div>
+                <small>Email</small>
+                <a href="mailto:rakeshdigavamurthi@gmail.com">rakeshdigavamurthi@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">☎</div>
+              <div>
+                <small>Phone</small>
+                <a href="tel:+917995679051">+91 7995679051</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">in</div>
+              <div>
+                <small>LinkedIn</small>
+                <a href="https://www.linkedin.com/in/digumurthy-rakesh-962882225/" target="_blank" rel="noopener">
+                  linkedin.com/in/digumurthy-rakesh-962882225
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">⌘</div>
+              <div>
+                <small>GitHub</small>
+                <a href="https://github.com/rake156" target="_blank" rel="noopener">
+                  github.com/rake156
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Professional Profile</h3>
+            <br>
+            <p>
+              Software Engineer focused on DevOps, AWS, automation and
+              software quality. I am interested in opportunities where I can
+              contribute to engineering teams while continuing to grow in
+              cloud and DevOps technologies.
+            </p>
+            <div class="buttons">
+              <a class="btn btn-primary" href="mailto:rakeshdigavamurthi@gmail.com">Email Me</a>
+              <a class="btn btn-secondary" href="https://github.com/rake156" target="_blank" rel="noopener">View GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="stats">
-    <div class="stat anim" style="--d:0.5s">
-      <div class="stat-icon">&lt;</div>
-      <div class="stat-value" data-target="5" data-suffix="+" data-decimals="0">0+</div>
-      <div class="stat-label">DevOps Tools</div>
-    </div>
-    <div class="stat anim" style="--d:0.58s">
-      <div class="stat-icon">%</div>
-      <div class="stat-value" data-target="1" data-suffix="+" data-decimals="0">0+</div>
-      <div class="stat-label">Year Hands-On</div>
-    </div>
-    <div class="stat anim" style="--d:0.66s">
-      <div class="stat-icon">*</div>
-      <div class="stat-value" data-target="4" data-suffix="" data-decimals="0">0</div>
-      <div class="stat-label">Certifications</div>
-    </div>
-    <div class="stat anim" style="--d:0.74s">
-      <div class="stat-icon">#</div>
-      <div class="stat-value" data-target="2" data-suffix="" data-decimals="0">0</div>
-      <div class="stat-label">Key Projects</div>
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Digavamurthi Rakesh. Built with HTML, CSS & JavaScript.
     </div>
   </footer>
 
-</div>
+  <a href="#home" class="back-top" id="backTop" aria-label="Back to top">↑</a>
 
-<script src="main.js"></script>
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    const backTop = document.getElementById("backTop");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    window.addEventListener("scroll", () => {
+      backTop.classList.toggle("show", window.scrollY > 500);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
